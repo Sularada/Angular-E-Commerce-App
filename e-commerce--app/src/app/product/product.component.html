@@ -1,1 +1,19 @@
-<p>product works!</p>
+<h3> Ürünler </h3>
+<input type="text" [(ngModel)]="filterText" class="form-control" id="searchInput" placeholder="Ürün adını giriniz.">
+
+<div class="row">
+    @for (product of products | productFilter:filterText; track product.name) {
+    <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img src={{product.imageUrl}} class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.name }}</h5>
+                    <p class="card-text">{{ product.description }} - {{ product.price | currency }} </p>
+                    <a (click)="addToCart(product)" href="#" class="btn btn-primary">Sepete Ekle</a>
+                </div>
+            </div>
+        </div>
+    } @empty {
+    <li>There are no products.</li>
+    }
+</div>

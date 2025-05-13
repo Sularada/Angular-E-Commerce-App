@@ -1,11 +1,17 @@
 import { Component } from '@angular/core';
-
+import { Category } from './category';
+import {CategoryService} from '../services/category.service'
 @Component({
   selector: 'app-category',
   imports: [],
   templateUrl: './category.component.html',
-  styleUrl: './category.component.css'
+  styleUrl: './category.component.css',
+   providers:[CategoryService]
 })
 export class CategoryComponent {
-
+   constructor(private categoryService: CategoryService){}
+   categories: Category[]
+ public ngOnInit():void{
+    this.categoryService.getCategories().subscribe((categories:Category[])=> this.categories = categories)
+  }
 }
