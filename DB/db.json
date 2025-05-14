@@ -1,22 +1,24 @@
 {
-    "products":[
-        {
-            "id":1, 
-            "name":"Laptop",
-            "price":"2500",
-            "categoryId":1,
-            "description":"Asus Zenbook","imageUrl":"https://picsum.photos/id/77/450/300"
-        },
-         {
-            "id":2, 
-            "name":"Mouse",
-            "price":"20",
-            "categoryId":2,
-            "description":"A4 Tech","imageUrl":"https://picsum.photos/id/77/450/300"
-        }
-    ],
-    "categories":[
-        {"id":1,"name":"Bilgisayar"},
-        {"id":2,"name":"Elektronik" }
-    ]
+  "products": [
+    {
+      "id": 1,
+      "name": "Laptop",
+      "price": "2500",
+      "categoryId": 1,
+      "description": "Asus Zenbook",
+      "imageUrl": "https://picsum.photos/id/77/450/300"
+    },
+    {
+      "id": 2,
+      "name": "Mouse",
+      "price": "20",
+      "categoryId": 2,
+      "description": "A4 Tech",
+      "imageUrl": "https://picsum.photos/id/77/450/300"
+    }
+  ],
+  "categories": [
+    { "id": 1, "name": "Bilgisayar" },
+    { "id": 2, "name": "Elektronik" }
+  ]
 }

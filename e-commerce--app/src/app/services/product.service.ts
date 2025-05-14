@@ -8,8 +8,9 @@ import { catchError, Observable, tap, throwError } from 'rxjs';
 export class ProductService {
 
   constructor(private http: HttpClient) { }
-  public getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>("http://localhost:3000/products").pipe(tap(data => console.log(JSON.stringify(data))),
+  public getProducts(categoryId: number): Observable<Product[]> {
+    let path = categoryId ? "http://localhost:3000/products?categoryId=" + categoryId : "http://localhost:3000/products"
+    return this.http.get<Product[]>(path).pipe(tap(data => console.log(JSON.stringify(data))),
       catchError(this.handleError)
     )
   }
