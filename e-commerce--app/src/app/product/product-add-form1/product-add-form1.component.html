@@ -1,0 +1,91 @@
+<h3>Yeni ürün ekle</h3>
+<form #productAddForm="ngForm" (ngSubmit)="add(productAddForm)">
+  <div class="form-group">
+    <input
+      type="text"
+      placeholder="Ürün adı"
+      name="name"
+      [(ngModel)]="model.name"
+      #name="ngModel"
+      class="form-control"
+      id="name"
+      required
+    />
+    <div *ngIf="name.invalid && name.dirty" class="alert alert-danger">
+      Ürün adı gereklidir
+    </div>
+  </div>
+  <div class="form-group">
+    <input
+      type="text"
+      placeholder="Ürün açıklaması"
+      name="description"
+      [(ngModel)]="model.description"
+      #description="ngModel"
+      class="form-control"
+      id="description"
+      required
+    />
+    <div
+      *ngIf="description.invalid && description.dirty"
+      class="alert alert-danger"
+    >
+      Ürün açıklaması gereklidir
+    </div>
+  </div>
+  <div class="form-group">
+    <input
+      type="text"
+      placeholder="Ürün resmi"
+      name="imageUrl"
+      [(ngModel)]="model.imageUrl"
+      #imageUrl="ngModel"
+      class="form-control"
+      id="imageUrl"
+      required
+    />
+    <div *ngIf="imageUrl.invalid && imageUrl.dirty" class="alert alert-danger">
+      Ürün resmi gereklidir
+    </div>
+  </div>
+  <div class="form-group">
+    <input
+      type="text"
+      placeholder="Ürün ücreti"
+      name="price"
+      [(ngModel)]="model.price"
+      #price="ngModel"
+      class="form-control"
+      id="price"
+      required
+    />
+    <div *ngIf="price.invalid && price.dirty" class="alert alert-danger">
+      Ürün ücret bilgisi gereklidir
+    </div>
+  </div>
+  <div class="form-group">
+    <select
+      name="categoryId"
+      [(ngModel)]="model.categoryId"
+      #categoryId="ngModel"
+      id="categoryId"
+      required
+      class="form-control"
+    >
+      @for (category of categories; track category.id) {
+      <option [ngValue]="category.id">
+        {{ category.name }}
+      </option>
+
+      }
+    </select>
+    <div
+      *ngIf="categoryId.invalid && categoryId.touched"
+      class="alert alert-danger"
+    >
+      Kategori seçimi zorunludur
+    </div>
+  </div>
+  <!-- [disabled]="productAddForm.invalid"  butona ait -->
+  <button type="submit" class="btn btn-primary">Kaydet</button>
+</form>
